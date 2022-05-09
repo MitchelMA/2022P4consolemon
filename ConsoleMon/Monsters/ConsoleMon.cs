@@ -4,25 +4,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleMon
+namespace ConsoleMon.Monsters
 {
-    internal class ConsoleMon
+    internal class ConsoleMonster
     {
         internal int health;
         internal int energy;
         internal string name;
         internal List<Skill> skills = new List<Skill>();
-        Elementen weakness;
+        internal string monsterType;
+        internal Elementen weakness;
+        internal int baseDamage;
 
-        ConsoleMon() { }
+        internal ConsoleMonster() { }
 
-        internal ConsoleMon(ConsoleMon copyForm)
+        internal ConsoleMonster(ConsoleMonster copyForm)
         {
             this.health = copyForm.health;
             this.energy = copyForm.health;
-            this.weakness = copyForm.weakness;
             this.name = copyForm.name;
             this.skills = new List<Skill>();
+            this.monsterType = copyForm.monsterType;
+            this.weakness = copyForm.weakness;
+            this.baseDamage = copyForm.baseDamage;
             foreach(Skill skill in copyForm.skills)
             {
                 this.skills.Add(skill.Copy());

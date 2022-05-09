@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleMon
+namespace ConsoleMon.Monsters
 {
     internal class Skill
     {
-        internal int damage;
+        internal int baseDamage;
         internal int energyCost;
         internal string name;
-        Elementen element;
+        internal Elementen element;
 
         // empty constructor
         internal Skill() { }
@@ -19,16 +19,16 @@ namespace ConsoleMon
         // copy constructor
         private Skill(Skill toCopy)
         {
-            this.damage = toCopy.damage;
+            this.baseDamage = toCopy.baseDamage;
             this.energyCost = toCopy.energyCost;
             this.name = toCopy.name;
             this.element = toCopy.element;
         }
 
-        internal void UseOn(ConsoleMon target, ConsoleMon caster)
+        internal void UseOn(ConsoleMonster target, ConsoleMonster caster)
         {
             caster.DepleteEnergy(energyCost);
-            target.TakeDamage(damage);
+            target.TakeDamage(baseDamage);
         }
 
         // copy method that uses the private copy constructor
