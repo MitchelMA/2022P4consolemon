@@ -14,12 +14,19 @@ namespace ConsoleMon
         internal List<Skill> skills = new List<Skill>();
         Elementen weakness;
 
-        internal ConsoleMon(int health, int energy, string name, Elementen weakness)
+        ConsoleMon() { }
+
+        internal ConsoleMon(ConsoleMon copyForm)
         {
-            this.health = health;
-            this.energy = energy;
-            this.name = name;
-            this.weakness = weakness;
+            this.health = copyForm.health;
+            this.energy = copyForm.health;
+            this.weakness = copyForm.weakness;
+            this.name = copyForm.name;
+            this.skills = new List<Skill>();
+            foreach(Skill skill in copyForm.skills)
+            {
+                this.skills.Add(skill.Copy());
+            }
         }
 
         internal void TakeDamage(int damage) => health -= damage;

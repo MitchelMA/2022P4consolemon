@@ -13,18 +13,28 @@ namespace ConsoleMon
         internal string name;
         Elementen element;
 
-        internal Skill(int damage, int energyCost, string name, Elementen element)
+        // empty constructor
+        internal Skill() { }
+        
+        // copy constructor
+        private Skill(Skill toCopy)
         {
-            this.damage = damage;
-            this.energyCost = energyCost;
-            this.name = name;
-            this.element = element;
+            this.damage = toCopy.damage;
+            this.energyCost = toCopy.energyCost;
+            this.name = toCopy.name;
+            this.element = toCopy.element;
         }
 
         internal void UseOn(ConsoleMon target, ConsoleMon caster)
         {
             caster.DepleteEnergy(energyCost);
             target.TakeDamage(damage);
+        }
+
+        // copy method that uses the private copy constructor
+        internal Skill Copy()
+        {
+            return new Skill(this);
         }
     }
 }
