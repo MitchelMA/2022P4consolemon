@@ -11,12 +11,14 @@ namespace ConsoleMon
         internal int damage;
         internal int energyCost;
         internal string name;
+        Elementen element;
 
-        internal Skill(int damage, int energyCost, string name)
+        internal Skill(int damage, int energyCost, string name, Elementen element)
         {
             this.damage = damage;
             this.energyCost = energyCost;
             this.name = name;
+            this.element = element;
         }
 
         internal void UseOn(ConsoleMon target, ConsoleMon caster)
