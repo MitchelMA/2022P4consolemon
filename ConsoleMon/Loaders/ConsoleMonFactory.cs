@@ -30,7 +30,7 @@ namespace ConsoleMon.Loaders
                 tmp.skills = monsterSkills;
 
                 // add the monster to the "templates" dictionary
-                templates.Add(tmp.name, tmp);
+                templates.Add(tmp.monsterType, tmp);
             }
         }
 
@@ -38,8 +38,7 @@ namespace ConsoleMon.Loaders
         {
             return new ConsoleMonster()
             {
-                name = data[0],
-                monsterType = data[8],
+                monsterType = data[0],
                 energy = Convert.ToInt32(data[2]),
                 health = Convert.ToInt32(data[2]),
                 baseDamage = Convert.ToInt32(data[4]),
@@ -65,9 +64,9 @@ namespace ConsoleMon.Loaders
             return skills;
         }
 
-        internal ConsoleMonster Make(string monstername)
+        internal ConsoleMonster Make(string monstertype)
         {
-            return new ConsoleMonster(templates[monstername]);
+            return new ConsoleMonster(templates[monstertype]);
         }
     }
 }

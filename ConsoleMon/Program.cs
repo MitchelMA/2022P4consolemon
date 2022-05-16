@@ -20,25 +20,21 @@ namespace ConsoleMon
         {
             // create a new instance of a factory
             ConsoleMonFactory myFactory = new ConsoleMonFactory();
+            // create a new instance of a battle arena
+            ConsoleMonArena myArena = new ConsoleMonArena();
             // load the data file
             myFactory.Load("./data/monsterdata.txt");
 
+
             // make a new monster
-            ConsoleMonster myMon = myFactory.Make("DeleteMon");
-            Console.WriteLine("name: " + myMon.name);
-            Console.WriteLine($"health: {myMon.health}");
-            Console.WriteLine($"energy: {myMon.energy}");
-            Console.WriteLine($"type: {myMon.monsterType}");
-            Console.WriteLine($"weakness: {myMon.weakness}");
-            Console.WriteLine($"base-damage: {myMon.baseDamage}");
-            Console.WriteLine("skills:");
-            foreach(Skill skill in myMon.skills)
-            {
-                Console.WriteLine($"skill-name: {skill.name}");
-                Console.WriteLine($"skill-base-damage: {skill.baseDamage}");
-                Console.WriteLine($"skill-energy-cost: {skill.energyCost}");
-                Console.WriteLine($"skill-type: {skill.element}\n");
-            }
+            ConsoleMonster monA = myFactory.Make("EnterMon");
+            ConsoleMonster monB = myFactory.Make("NewLineMon");
+            monA.name = "Monachu";
+            monB.name = "Monizard";
+
+            myArena.DoBattle(monA, monB);
+
+            
         }
     }
 }

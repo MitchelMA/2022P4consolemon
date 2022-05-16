@@ -33,6 +33,31 @@ namespace ConsoleMon.Monsters
             }
         }
 
+        internal void PrintData()
+        {
+            Console.WriteLine("name: " + name);
+            Console.WriteLine($"health: {health}");
+            Console.WriteLine($"energy: {energy}");
+            Console.WriteLine($"type: {monsterType}");
+            Console.WriteLine($"weakness: {weakness}");
+            Console.WriteLine($"base-damage: {baseDamage}");
+            Console.WriteLine("skills:");
+            foreach (Skill skill in skills)
+            {
+                Console.WriteLine($"skill-name: {skill.name}");
+                Console.WriteLine($"skill-base-damage: {skill.baseDamage}");
+                Console.WriteLine($"skill-energy-cost: {skill.energyCost}");
+                Console.WriteLine($"skill-type: {skill.element}\n");
+            }
+        }
+
+        internal void ShortData()
+        {
+            Console.WriteLine("name: " + name);
+            Console.WriteLine($"health: {health}");
+            Console.WriteLine($"energy: {energy}");
+        }
+
         internal void TakeDamage(int damage) => health -= damage;
         internal void DepleteEnergy(int energy) => this.energy -= energy;
     }
