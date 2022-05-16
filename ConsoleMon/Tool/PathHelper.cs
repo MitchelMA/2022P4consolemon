@@ -12,7 +12,7 @@ namespace ConsoleMon.Tools
     internal static class PathHelper
     {
         private static readonly DirectoryInfo execDir = new FileInfo(Assembly.GetExecutingAssembly().Location).Directory;
-        internal static string ReadFromFile(string filePath) 
+        internal static string ReadFromFile(string filePath)
         {
             return File.ReadAllText(execDir.FullName + filePath);
         }

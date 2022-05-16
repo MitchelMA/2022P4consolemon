@@ -15,7 +15,7 @@ namespace ConsoleMon.Monsters
 
         // empty constructor
         internal Skill() { }
-        
+
         // copy constructor
         private Skill(Skill toCopy)
         {
@@ -25,10 +25,16 @@ namespace ConsoleMon.Monsters
             this.element = toCopy.element;
         }
 
-        internal void UseOn(ConsoleMonster target, ConsoleMonster caster)
+        internal int[] UseOn(ConsoleMonster target, ConsoleMonster caster)
         {
+            int totDamage = caster.baseDamage + baseDamage;
+            if (element == target.weakness)
+            {
+                totDamage = (int)(totDamage * 1.2f);
+            }
             caster.DepleteEnergy(energyCost);
-            target.TakeDamage(baseDamage);
+            target.TakeDamage(totDamage);
+            return new int[2] { totDamage, energyCost };
         }
 
         // copy method that uses the private copy constructor

@@ -11,11 +11,11 @@ namespace ConsoleMon.Loaders
     internal class ConsoleMonFactory
     {
         private Dictionary<string, ConsoleMonster> templates = new Dictionary<string, ConsoleMonster>();
-        
+
         internal void Load(string filePath)
         {
             string[] lines = PathHelper.ReadAsLines(filePath);
-            for(int i = 0; i < lines.Length; i+=2)
+            for (int i = 0; i < lines.Length; i += 2)
             {
                 // load in the monster from the file
                 ConsoleMonster tmp = ReadMonster(lines[i].Split(','));
@@ -49,7 +49,7 @@ namespace ConsoleMon.Loaders
         private List<Skill> ReadSkills(string[] data)
         {
             List<Skill> skills = new List<Skill>();
-            foreach(string item in data)
+            foreach (string item in data)
             {
                 string[] splitted = item.Split(',');
                 Skill tmp = new Skill()

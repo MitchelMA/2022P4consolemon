@@ -27,7 +27,7 @@ namespace ConsoleMon.Monsters
             this.monsterType = copyForm.monsterType;
             this.weakness = copyForm.weakness;
             this.baseDamage = copyForm.baseDamage;
-            foreach(Skill skill in copyForm.skills)
+            foreach (Skill skill in copyForm.skills)
             {
                 this.skills.Add(skill.Copy());
             }
